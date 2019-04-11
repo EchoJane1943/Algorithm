@@ -71,10 +71,9 @@ gmm <- function(data,k){
   res = matrix(rep(0,k*n),n,k)
   
   count = 0
-  while (abs(loglikelihood-oldloglikelihood) > 0.0001 | count > 100){
+  while (abs(loglikelihood-oldloglikelihood) > 0.0001 & count < 10){
     count = count +1
-    cat("count = ",count)
-    print()
+    cat("count = ",count,"\n")
     oldloglikelihood = loglikelihood
     # E step 求解gammas[n,k],即第n个样本落在第k个高斯分布的概率，对数似然
     for (i in 1:n) {
@@ -108,4 +107,4 @@ gmm <- function(data,k){
   return(list(loglikelihood = loglikelihood,pis = pis,means = means,convs = convs))
 }
 
-gmm(result$x,5)
+resofgmm <- gmm(result$x,5)
