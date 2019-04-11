@@ -73,21 +73,22 @@ gmm <- function(data,k){
   count = 0
   while (abs(loglikelihood-oldloglikelihood) > 0.0001 | count > 100){
     count = count +1
-  
-      oldloglikelihood = loglikelihood
-      # E step 求解gammas[n,k],即第n个样本落在第k个高斯分布的概率，对数似然
-      for (i in 1:n) {
-        for (j in 1:k){res[i,j] = pis[j]*Gaussian(data[i,],means[[j]],convs[[j]])}
-        sumres <- sum(res[i,])
-        for (j in 1:k){gammas[i,j] = res[i,j]/sumres}
-      }
-      # M step update parameters
-      for (j in 1:k){
-        Nj <- sum(gammas[,j])
-        pis[j] <- 1.0*Nj/n
-        
-        summea <- 0
-        for (i in 1:n) {summea <- summea +  gammas[i,j]*data[i,]}
+    cat("count = ",count)
+    print()
+    oldloglikelihood = loglikelihood
+    # E step 求解gammas[n,k],即第n个样本落在第k个高斯分布的概率，对数似然
+    for (i in 1:n) {
+      for (j in 1:k){res[i,j] = pis[j]*Gaussian(data[i,],means[[j]],convs[[j]])}
+      sumres <- sum(res[i,])
+      for (j in 1:k){gammas[i,j] = res[i,j]/sumres}
+    }
+    # M step update parameters
+    for (j in 1:k){
+      Nj <- sum(gammas[,j])
+      pis[j] <- 1.0*Nj/n
+      
+      summea <- 0
+      for (i in 1:n) {summea <- summea +  gammas[i,j]*data[i,]}
         means[j] <- list(summea/Nj)
         xdiffs <- list()
         for (i in 1:n) {xdiffs[[i]] <- data[i,] - summea/Nj}
@@ -103,7 +104,8 @@ gmm <- function(data,k){
         }
         loglikelihood <- loglikelihood + log(temp)
       }
-  
   } 
+  return(list(loglikelihood = loglikelihood,pis = pis,means = means,convs = convs))
 }
+
 gmm(result$x,5)
