@@ -30,7 +30,7 @@ eg.records = [json.loads(line) for line in open(path)]
 
 - 计数
 
-
+'''
 def get_counts(sequence):
     counts = {}
     for x in sequence:
@@ -39,6 +39,7 @@ def get_counts(sequence):
         else:
             counts[x] = 1
     return counts
+'''
 
 ### little tips
 
