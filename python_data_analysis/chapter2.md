@@ -27,3 +27,20 @@
 在一组字符串（或一组别的对象）上执行一条相同操作
 
 eg.records = [json.loads(line) for line in open(path)]
+
+- 计数
+
+
+def get_counts(sequence):
+    counts = {}
+    for x in sequence:
+        if x in counts:
+            counts[x] += 1
+        else:
+            counts[x] = 1
+    return counts
+
+### little tips
+
+python 的索引是从0开始的，R语言的索引是从1开始的。
+
