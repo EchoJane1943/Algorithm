@@ -41,6 +41,18 @@ def get_counts(sequence):
     return counts
 ```
 
+利用python标准库
+
+```
+from collections import defaultdict
+
+def get_counts2(sequence):
+    counts = defaultdict(int) # 所有的值均会被初始化为0
+    for x in sequence:
+        counts[x] += 1
+    return counts
+```
+
 ### little tips
 
 python 的索引是从0开始的，R语言的索引是从1开始的。
