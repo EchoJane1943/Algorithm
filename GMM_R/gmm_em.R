@@ -5,7 +5,6 @@ gene_data <- function(n,p){
   # n: length of data
   # p: dimention of x
   # rho: Covariance matrix correlation
-  
   rho       <- runif(p,0,1)
   w         <- DIRECT::rDirichlet(1,rep(1,p)) # weights of every distribution
   x         <- data.frame()
