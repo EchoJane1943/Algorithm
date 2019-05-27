@@ -22,7 +22,7 @@ gene_data <- function(n,p){
   return(list(x = x[1:n,],w = w,means = means,sigma = sigmas,rho = rho))
 }
 
-result <- gene_data(200,5)
+result <- gene_data(100,5)
 
 ## CGS for DPMM
 
@@ -43,12 +43,6 @@ crp_cgs <- function(x,T = 10,alpha = 1){
   # xi: data
   # zi: clusters
   
-  # initial value
-  N = dim(x)[1]
-  D = dim(x)[2]
-  K = 20
-  Z      <- sample(c(1:K),size = N,replace = TRUE)
-  
   # caculate Phi_n_k
   Phi <- function(nk){
     munk <- (lambda*mu0+nk*x_bar)/(lambda+nk)
@@ -58,6 +52,11 @@ crp_cgs <- function(x,T = 10,alpha = 1){
     return(res)
   }
   
+  # initial value
+  N = dim(x)[1]
+  D = dim(x)[2]
+  K = 20
+  Z      <- sample(c(1:K),size = N,replace = TRUE)
   mat    <-  as.data.frame(table(Z),names=c("Var1","Freq"))
   lambda <- 10
   nu     <- 10
@@ -100,7 +99,7 @@ crp_cgs <- function(x,T = 10,alpha = 1){
       p2tem = pi^(-D/2)*((lambda+1)/(lambda+1-1))^(-D/2)*
         det(Phi(1))^(-(nu+1)/2)/det(Phi(1-1))^(-(nu+1-1)/2)*
         gamma((nu+1)/2)/gamma((nu+1-D)/2)
-      p2 = c(p2,log(p2tem)*p2old[k])
+      p2 = c(p2,log(p2tem)*p2old[K+1])
       p3tem = p1[K+1]* p2[K+1]
       p3 = c(p3,p3tem)
     }
