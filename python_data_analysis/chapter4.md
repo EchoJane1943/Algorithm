@@ -94,6 +94,9 @@ np.dot(arr.T,arr)
 # 高维转置 
 arr = np.arange(24).reshape((2,3,4))
 arr.transpose((1,0,2))
+
+# another method
+arr.swapaxes(0,1)
 ```
 https://blog.csdn.net/qq_38650993/article/details/79233872
 
