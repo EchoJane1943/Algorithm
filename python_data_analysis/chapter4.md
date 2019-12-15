@@ -22,7 +22,7 @@ pandas提供了numpy所没有的功能，比如时间序列处理。
 
 ### ndarray
 
-ndarray是一个通用的同构数据多维容器，每个数组（numpy数组/ndarray对象）都有一个shape和一个dtype。
+ndarray是一个通用的同构数据多维容器，每个数组（numpy数组/ndarray对象）都有一个shape和一个dtype。 
 
 * 1.创建 
 
@@ -85,14 +85,16 @@ arr[[1,5,7,2],[0,3,1,2]]
 * 6.数组转置和轴对换
 
 ```
-# 数组的T特性
+# 数组的T特性 二维
 arr = np.arange(15).reshape((3,5))
 arr.T
 #应用
 arr = np.random.randn(6,3)
 np.dot(arr.T,arr)
-# 高维转置
+# 高维转置 
 arr = np.arange(24).reshape((2,3,4))
 arr.transpose((1,0,2))
 ```
-```
+https://blog.csdn.net/qq_38650993/article/details/79233872
+
+
