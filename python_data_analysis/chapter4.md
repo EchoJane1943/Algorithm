@@ -84,3 +84,15 @@ arr[[1,5,7,2],[0,3,1,2]]
 
 * 6.数组转置和轴对换
 
+```
+# 数组的T特性
+arr = np.arange(15).reshape((3,5))
+arr.T
+#应用
+arr = np.random.randn(6,3)
+np.dot(arr.T,arr)
+# 高维转置
+arr = np.arange(24).reshape((2,3,4))
+arr.transpose((1,0,2))
+```
+```
