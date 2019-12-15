@@ -98,6 +98,8 @@ arr.transpose((1,0,2))
 # another method
 arr.swapaxes(0,1)
 ```
-https://blog.csdn.net/qq_38650993/article/details/79233872
+https://zhuanlan.zhihu.com/p/61203757
+
+~~我爱知乎（doge）~~
 
 
