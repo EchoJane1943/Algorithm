@@ -103,3 +103,17 @@ https://zhuanlan.zhihu.com/p/61203757
 ~~我爱知乎（doge）~~
 
 
+## 通用函数ufunc：快速的元素级数组函数
+ 简单函数的矢量化包装器
+ 
+ ```
+  # 一元ufunc
+ arr = np.arange(10)
+ np.sqrt(arr)
+ np.exp(arr)
+ # 二元ufunc
+ x = randn(8)
+ y = randn(8)
+ np.maximum(x,y) #返回每一个位置x y 中的最大值
+ 
+ ```
