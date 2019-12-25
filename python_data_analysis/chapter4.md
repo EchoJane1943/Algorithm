@@ -116,4 +116,63 @@ https://zhuanlan.zhihu.com/p/61203757
  y = randn(8)
  np.maximum(x,y) #返回每一个位置x y 中的最大值
  
+ 
+ arr = np.random.randn(7)*5
+ np.modf(arr) # 分别返回arr的小数部分和整数部分
  ```
+常见的一元ufunc
+```
+abs、fabs 计算绝对值，fabs对于非复数值计算更加快
+sqrt 平方根
+square 平方
+exp 指数e^x
+log、log10、log2、log1p 底数分别为e、10、2、（1+p)
+sign 计算正负号，1，0，-1
+ceil 大于等于该值的最小整数
+floor 小于等于该值的最大整数
+rint 四舍五入到整数
+modf 返回小数和整数部分
+innan 
+infinite、isinf
+cos、cosh、sin、sinh、tan、tanh、arccos、arccosh、arcsin、arcsinh、arctan、arctanh
+logical_not 计算not x的值
+```
+二元ufunc
+```
+add 加法
+subtract 减法
+multiply 乘法
+divide\floor_divide 除法、向下整除法（丢弃余数）
+power 次方
+maximum\fax\minimum\fmin 计算最大值或者最小值（fmam\fmin会忽略NaN
+mod 求模（除法的余数）
+copysign 复制符号，将第二数组的符号复制给第一个数组
+greater\greater_equal\less\less_equal\equal\not_equal 
+logical_and\logical_or\logical_xor 与或异或
+```
+
+## 利用数组进行数据处理
+网格型计算
+```
+points = np.arange(-5,5,0.01) # 1000 个等间隔点
+xs,ys = np.meshgrid(points,points)
+z = np.sqrt(xs**2+ys**2)
+import matplotlib.pyplot as plt
+plt.imshow(z,cmap = plt.cm.gray);plt.colorbar()
+```
+
+### 将条件逻辑表述为数组运算
+```
+# np.where 是三元表达式 x if condition else y 的矢量化版本
+ xarr = np.array([1.1,1.2,1.3,1.4,1.5])
+ yarr = np.array([2.1,2.2,2.3,2.4,2.5])
+ cond = np.array([True,False,True,True,False])
+ 
+ result = [(x if c else y) for x,y,c in zip(xarr,yarr,cond)]
+ # 上述对于大数组的处理速度不是很快，且无法应用于多维数组
+ # 使用np.where
+ result = np.where(cond,xarr,yarr)
+```
+### 数学和统计方法
+
+
