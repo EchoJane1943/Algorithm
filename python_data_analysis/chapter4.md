@@ -175,4 +175,12 @@ plt.imshow(z,cmap = plt.cm.gray);plt.colorbar()
 ```
 ### 数学和统计方法
 
-
+```
+sum
+mean
+std\var
+min\max
+argmin\argmax 最大值、最小值的索引
+cumsum 所有元素的累计和
+cumprod 所有元素的累积积
+```
