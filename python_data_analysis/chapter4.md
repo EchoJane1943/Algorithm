@@ -214,5 +214,41 @@ arr.sort(1)# 直接改变arr
 ### 唯一化和其他的集合逻辑
 
 np.unique(arr)可以找出数组中的唯一值并返回已排序的结果，等价于纯python代码sorted(set(arr))
-np.unique(arr)可以找出数组中的唯一值并返回已排序的结果，等价于纯python代码sorted(set(
 
+np.in1d()用于测试一个数组中的值在另一个数组中是否存在，返回一个布尔型数组
+
+intersect1d(x,y)计算x和y的公共元素，并返回有序结果（交集）
+
+union1d(x,y)计算并集，并返回有序结果
+
+setdiff1d(x,y)集合的差，即元素在x中且不在y中
+
+setxor1d(x,y)集合的对称差，即存在于一个数组中但不同时存在于两个数组中的元素
+
+
+```
+values = np.array([6,0,0,3,2,5,6])
+np.in1d(values,[2,3,6])
+```
+
+## 用于数组的文件输入输出
+
+```
+# 将数组以二进制格式保存到磁盘
+arr = np.arrnge(10)
+np.save('some_array',arr) # 自动添加扩展名.npy
+
+np.load('some_array.npy')
+
+np.savez('array_archive.npz',a = arr,b = arr)
+arch = np.load('array_archive.npz')
+arch['b']
+```
+
+np.loadtxt() & np.genfromtxt()将数据加载到普通的numpy数组中。
+
+np.savetxt将数组写入到以某种分隔符隔开的文本文件中。
+
+## 线性代数
+
+#¥
