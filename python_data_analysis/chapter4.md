@@ -251,4 +251,42 @@ np.savetxt将数组写入到以某种分隔符隔开的文本文件中。
 
 ## 线性代数
 
-#¥
+```
+x = np.array([[1,2,3],[4,5,6]])
+y = np.array([[]6,23],[-1,7],[8,9])
+x.dot(y) # ~ np.dot(x,y)
+```
+
+numpy.linalg中有一组标准的矩阵分解运算以及诸如求逆和行列式之类的东西，包含下列函数：
+```
+# form numpy.linalg import 
+diag 以一维数组的形式返回方针的对角线（或非对角线）元素，或将一维数组转换为方针（非对角线元素为0）
+dot 矩阵乘法
+trace 计算对角线元素的和
+det 计算矩阵行列式
+eig 计算方阵的本征值和本征向量
+inv 计算方阵的逆
+pinv 计算矩阵的Moore-Penrose伪逆
+qr 计算qr分解
+svd 计算奇异值分解（SVD）
+solve 解线性方程组Ax=b，其中A为方阵
+lstsq 计算Ax=b的最小二乘解
+```
+
+### 随机数生成
+numpy.random模块
+
+```
+seed 确定随机数生成器的种子
+permutation 返回一个序列的随机排列或返回一个随机排列的范围
+shuffle 对一个序列就地随机排列
+rand 产生均匀分布的样本值
+randint 从给定范围产生整数
+randn 产生标准正态分布的样本值，类似于Matlab的接口
+binomial 产生二项分布的样本值
+normal 产生正态分布样本值
+beta beta分布样本值
+chisquare 卡方分布样本值
+gamma gamma分布样本值
+uniform 【0，1】均匀分布样本值
+```
