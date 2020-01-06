@@ -184,3 +184,35 @@ argmin\argmax 最大值、最小值的索引
 cumsum 所有元素的累计和
 cumprod 所有元素的累积积
 ```
+
+
+上述方法中，布尔值会被强制转换为1（TRUE）和0（FALSE）。
+
+```
+import numpy as np
+arr = np.random.randn(100)
+(arr>0).sum()
+```
+
+```
+bools = np.array([False,False,True,False])
+bools.any()
+bools.all()
+# any & all用于非布尔型数组时，非0元素都会被当作True。
+```
+
+``` 
+# 排序
+import numpy as np
+arr = np.random.randn(8)
+arr.sort()# 直接改变arr
+#多维
+arr = np.random.randn(3,5)
+arr.sort(1)# 直接改变arr
+```
+
+### 唯一化和其他的集合逻辑
+
+np.unique(arr)可以找出数组中的唯一值并返回已排序的结果，等价于纯python代码sorted(set(arr))
+np.unique(arr)可以找出数组中的唯一值并返回已排序的结果，等价于纯python代码sorted(set(
+
